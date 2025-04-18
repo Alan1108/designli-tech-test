@@ -29,7 +29,6 @@ export const StockForm: React.FC<StockFormProps> = ({
   latestMessage,
   subscribe,
   unsubscribe,
-  closeSocket,
 }) => {
   const [symbol, setSymbol] = useState<string | null>(null);
   const [priceAlert, setPriceAlert] = useState<string | null>(null);

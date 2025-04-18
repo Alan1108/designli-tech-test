@@ -1,7 +1,7 @@
 import { Header } from "../modules/Header";
 import { StockForm } from "../modules/StockForm";
 import { useFinnhubSocket } from "../hooks/useFinnhubSocket";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const HomePage = () => {
   const { isConnected, latestMessage, subscribe, unsubscribe, closeSocket } =

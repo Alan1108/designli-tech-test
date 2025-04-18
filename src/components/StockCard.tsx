@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { IoIosArrowUp } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 

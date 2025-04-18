@@ -5,13 +5,6 @@ interface IFinnhubSocketOptions {
   reconnectInterval?: number;
 }
 
-interface ISubscribedSymbolData {
-  symbol: string;
-  latestPrice: number;
-  volumen: number;
-  priceAlert: number;
-}
-
 export const useFinnhubSocket = (options: IFinnhubSocketOptions) => {
   const { reconnectInterval } = options;
   const [latestMessage, setLatestMessage] = useState<any>(null);
@@ -59,6 +52,7 @@ export const useFinnhubSocket = (options: IFinnhubSocketOptions) => {
         subscribedSymbolsRef.current.forEach((symbol) => {
           socket.send(JSON.stringify({ type: "subscribe", symbol }));
         });
+        console.info(event);
       };
 
       socket.onmessage = (event) => {

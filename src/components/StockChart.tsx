@@ -10,7 +10,6 @@ import {
   Legend,
   ChartData,
   ChartOptions,
-  Point,
   TimeScale,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
