@@ -16,8 +16,8 @@ export const StockCard = (props: IStockCardProps) => {
     <div
       style={{
         borderRight: "solid grey",
-        width: "20rem",
-        padding: "1rem 2rem",
+        padding: ".5rem 1rem",
+        minWidth: "220px",
       }}
     >
       <div
@@ -26,10 +26,13 @@ export const StockCard = (props: IStockCardProps) => {
           flexDirection: "row",
           justifyContent: "space-between",
           color: "white",
+          fontSize: "0.9rem",
+          lineHeight: "1",
+          height: "fit-content",
         }}
       >
-        <span>{symbolName}</span>
-        <span style={{ fontWeight: "bold" }}>{price}</span>
+        <p>{symbolName}</p>
+        <p style={{ fontWeight: "bold" }}>{price}</p>
       </div>
       <div
         style={{ color: isProfit ? "#1FB955" : "#F55B5A", fontSize: ".9rem" }}
