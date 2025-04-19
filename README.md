@@ -1,54 +1,159 @@
-# React + TypeScript + Vite
+# Designli Tech Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Instructions
 
-Currently, two official plugins are available:
+You can choose either of the two exercises. Follow the instructions and if you want to
+propose something else, you have room to unleash your creativity and tech experience 👍.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### The easy one:
 
-## Expanding the ESLint configuration
+1.  Create a React app (Typescript) for showing stock data in real time using Finnhub
+    Stock APIs ✅
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2.  The app should have 3 components: - Left form: A form with 2 fields, a dropdown to select a stock to watch and an input
+    for price alert. ✅
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+         - Top cards (similar to Finnhu home), for showing the stock name, the value and the
+
+    margin change as a percentage. ✅
+
+         - A graph for plotting the value of all stock added in dollar value. ✅
+
+3.  For real time tracking use Sockets API ✅
+4.  For top cards, use red if the value is below the alert value and green if above. ✅
+
+### The real challenge:
+
+1. Same easy exercise but as a PWA ✅
+2. Manage the websocket connection in background and save the values in local storage
+   to quickly plot when open the PWA ✅
+3. Send a webpush notification when price go below the alert level.
+
+## Installation
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone <repository-url>
+    ```
+
+2.  **Navigate to the project directory:**
+
+    ```bash
+    cd <project-directory>
+    ```
+
+3.  **Install dependencies:**
+
+    ```bash
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    ```
+
+## Development
+
+- #### Node version: v23.11.0
+- #### Vite version: v6.2.6
+- #### Used Dependencies
+
+  - @types/lodash: ^4.17.16,
+  - @types/node: ^22.14.1,
+  - chart.js: ^4.4.9,
+  - chartjs-adapter-date-fns: ^3.0.0,
+  - date-fns: ^4.1.0,
+  - finnhub-ts: ^1.0.7,
+  - lodash: ^4.17.21,
+  - react: ^19.0.0,
+  - react-chartjs-2: ^5.3.0,
+  - react-dom: ^19.0.0,
+  - react-icons: ^5.5.0,
+  - styled-components: ^6.1.17,
+  - vite-plugin-pwa: ^1.0.0
+
+1. **Start the development server:**
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
+
+   This command starts a local development server and opens the app in your default browser. Any changes you make to the code will automatically reflect in the browser thanks to Hot Module Replacement (HMR).
+
+## Building for Production
+
+1. **Build the application:**
+
+   ```bash
+   npm run build
+   # or
+   yarn build
+   # or
+   pnpm build
+   ```
+
+   This command creates an optimized production build of your application in the `dist` directory.
+
+## Previewing the Production Build
+
+1.  **Preview the production build locally:**
+
+    ```bash
+    npm run preview
+    # or
+    yarn preview
+    # or
+    pnpm preview
+    ```
+
+    This command starts a local server that serves the production build, allowing you to test it before deployment.
+
+## Environment Variables
+
+To make this app work, you need to add environment variables.
+
+1.  **Create a `.env` file** in the root of your project.
+2.  **Add your environment variables** in the `.env` file. For example:
+
+    ```
+    VITE_API_URL=<API url>
+    VITE_APP_NAME=<API Key>
+    ```
+
+## Folder Structure
+
+The project structure is organized as follows:
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+designli-tech-test/
+├── public/                    # Static assets (e.g., images, fonts)
+├── src/                       # Source code
+│   ├── assets/                # Static assets (e.g., images, fonts)
+│   ├── components/            # Reusable UI components
+│   ├── hooks/                 # Custom React hooks
+│   ├── modules/               # A set of reusable components
+│   ├── pages/                 # Page-level components
+│   ├── services/              # API interaction and data fetching
+│   ├── utils/                 # Utility functions
+│   ├── App.tsx                # Main application component
+│   ├── index.css              # Global styles
+│   ├── main.tsx               # Entry point of the application
+│   └── vite-env.d.ts          # TypeScript environment declarations
+├── .env                       # Environment variables
+├── .eslintrc.config.js        # ESLint configuration
+├── .gitignore                 # Git ignore file
+├── index.html                 # HTML template
+├── manifest.json              # Manifest file for web app
+├── package.json               # Project dependencies and scripts
+├── pnpm-lock.yaml             # pnpm lock file
+├── README.md                  # Project documentation
+├── service-worker.js          # Service worker for webpush notifications
+├── tsconfig.json              # TypeScript configuration
+├── tsconfig.node.json         # TypeScript configuration for Node.js
+└── vite.config.ts             # Vite configuration
 ```
