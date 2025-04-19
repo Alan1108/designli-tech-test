@@ -1,0 +1,27 @@
+{
+  "name": "Designli Tech Test",
+  "short_name": "Tech Test",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "finnhub-logo.webp",
+      "sizes": "736x608",
+      "type": "image/png"
+    },
+    {
+      "src": "finnhub-logo (1).webp",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot.png",
+      "sizes": "3456x2234",
+      "type": "image/png"
+    }
+  ]
+}
