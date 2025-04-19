@@ -10,17 +10,13 @@ propose something else, you have room to unleash your creativity and tech experi
 1.  Create a React app (Typescript) for showing stock data in real time using Finnhub
     Stock APIs ✅
 
-2.  The app should have 3 components: - Left form: A form with 2 fields, a dropdown to select a stock to watch and an input
-    for price alert. ✅
+2.  The app should have 3 components:
+   - Left form: A form with 2 fields, a dropdown to select a stock to watch and an input for price alert. ✅
+   - Top cards (similar to Finnhu home), for showing the stock name, the value and the margin change as a percentage. ✅
+   - A graph for plotting the value of all stock added in dollar value. ✅
 
-         - Top cards (similar to Finnhu home), for showing the stock name, the value and the
-
-    margin change as a percentage. ✅
-
-         - A graph for plotting the value of all stock added in dollar value. ✅
-
-3.  For real time tracking use Sockets API ✅
-4.  For top cards, use red if the value is below the alert value and green if above. ✅
+4.  For real time tracking use Sockets API ✅
+5.  For top cards, use red if the value is below the alert value and green if above. ✅
 
 ### The real challenge:
 
