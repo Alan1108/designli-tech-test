@@ -153,3 +153,5 @@ designli-tech-test/
 ├── tsconfig.node.json         # TypeScript configuration for Node.js
 └── vite.config.ts             # Vite configuration
 ```
+## [Video Overview](https://drive.google.com/file/d/1EUVhEItt28LV31HNSFfiw-W4JUSzsK3A/view?usp=sharing)
+ 
