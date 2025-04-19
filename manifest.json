@@ -23,5 +23,6 @@
       "sizes": "3456x2234",
       "type": "image/png"
     }
-  ]
+  ],
+  "gcm_user_visible_only": true
 }
