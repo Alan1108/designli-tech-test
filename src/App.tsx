@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { HomePage } from "./pages/HomePage";
+import { environment } from "./utils/environment";
 
 export const App = () => {
   useEffect(() => {
@@ -13,11 +14,8 @@ export const App = () => {
           try {
             const subscription = await registration.pushManager.subscribe({
               userVisibleOnly: true,
-              // Sin applicationServerKey (clave pública VAPID)
+              applicationServerKey: environment.vapidKey,
             });
-            console.log("Suscripción:", subscription);
-            // En un escenario real, NO enviarías esta información sensible al frontend de otra manera
-            // sin un backend seguro. Aquí, podrías mostrarla en la consola para pruebas limitadas.
           } catch (error) {
             console.error("Error al suscribir:", error);
           }
@@ -26,7 +24,6 @@ export const App = () => {
         }
       }
     };
-
     subscribeForPush();
   }, []);
 
