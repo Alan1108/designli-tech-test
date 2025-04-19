@@ -90,6 +90,7 @@ export const HomePage = () => {
         overflowY: "auto",
         display: "flex",
         flexWrap: "wrap",
+        gap: "3rem",
         flexDirection: "row",
       }}
     >

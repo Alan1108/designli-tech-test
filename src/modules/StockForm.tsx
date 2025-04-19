@@ -30,7 +30,6 @@ export const StockForm: React.FC<StockFormProps> = ({
   latestMessage,
   subscribe,
   unsubscribe,
-  closeSocket,
   subscribedSymbols,
 }) => {
   const [symbol, setSymbol] = useState<string | null>(null);
@@ -128,6 +127,8 @@ export const StockForm: React.FC<StockFormProps> = ({
         backgroundColor: "#f8f9fa",
         borderRadius: "8px",
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+        gap: "3rem",
+        flexWrap: "wrap",
       }}
     >
       <div
@@ -136,7 +137,7 @@ export const StockForm: React.FC<StockFormProps> = ({
           flexDirection: "column",
           gap: "1.5rem",
           width: "100%",
-          maxWidth: "500px",
+          maxWidth: "32rem",
           padding: "2rem",
           backgroundColor: "white",
           borderRadius: "8px",
@@ -236,7 +237,7 @@ export const StockForm: React.FC<StockFormProps> = ({
       <div
         style={{
           flex: 1,
-          height: "600px",
+          height: "38rem",
           display: "flex",
           flexDirection: "column",
           backgroundColor: "white",
