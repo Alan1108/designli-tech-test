@@ -11,6 +11,7 @@ interface StockFormProps {
   subscribe: (symbol: string | null) => void;
   unsubscribe: (symbol: string | null) => void;
   closeSocket: () => void;
+  subscribedSymbols: Set<string>;
 }
 
 interface StockData {
@@ -29,15 +30,14 @@ export const StockForm: React.FC<StockFormProps> = ({
   latestMessage,
   subscribe,
   unsubscribe,
+  closeSocket,
+  subscribedSymbols,
 }) => {
   const [symbol, setSymbol] = useState<string | null>(null);
   const [priceAlert, setPriceAlert] = useState<string | null>(null);
   const [symbols, setSymbols] = useState<(string | undefined)[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [stockPriceHistory, setStockPriceHistory] = useState<StockData[]>([]);
-  const [subscribedSymbols, setSubscribedSymbols] = useState<Set<string>>(
-    new Set()
-  );
   const [priceAlerts, setPriceAlerts] = useState<PriceAlert[]>([]);
 
   // Filter symbols based on search term
@@ -91,35 +91,6 @@ export const StockForm: React.FC<StockFormProps> = ({
     }
   }, [latestMessage, subscribedSymbols]);
 
-  const handleSubscribe = () => {
-    if (symbol) {
-      subscribe(symbol);
-      setSubscribedSymbols((prev) => new Set([...prev, symbol]));
-    }
-  };
-
-  const handleUnsubscribe = () => {
-    if (symbol) {
-      unsubscribe(symbol);
-      setSubscribedSymbols((prev) => {
-        const newSet = new Set(prev);
-        newSet.delete(symbol);
-        return newSet;
-      });
-      // Remove data for unsubscribed symbol
-      setStockPriceHistory((prev) =>
-        prev.filter((item) => item.symbolName !== symbol)
-      );
-      // Remove price alerts for unsubscribed symbol
-      setPriceAlerts((prev) => prev.filter((alert) => alert.symbol !== symbol));
-    }
-  };
-
-  const handleClearChart = () => {
-    setStockPriceHistory([]);
-    setPriceAlerts([]);
-  };
-
   const handleSetPriceAlert = () => {
     if (symbol && priceAlert) {
       const alertPrice = parseFloat(priceAlert);
@@ -133,6 +104,15 @@ export const StockForm: React.FC<StockFormProps> = ({
         setPriceAlert(null); // Clear the input
       }
     }
+  };
+
+  const handleClearChart = () => {
+    setStockPriceHistory([]);
+    setPriceAlerts([]);
+  };
+
+  const isSymbolSubscribed = (symbolToCheck: string | null) => {
+    return symbolToCheck ? subscribedSymbols.has(symbolToCheck) : false;
   };
 
   return (
@@ -218,10 +198,36 @@ export const StockForm: React.FC<StockFormProps> = ({
             marginTop: "1rem",
           }}
         >
-          <Button onClick={handleSubscribe} fullWidth>
+          <Button
+            onClick={() => {
+              if (symbol) {
+                subscribe(symbol);
+                handleSetPriceAlert();
+              }
+            }}
+            disabled={!symbol || isSymbolSubscribed(symbol)}
+            fullWidth
+          >
             Subscribe
           </Button>
-          <Button onClick={handleUnsubscribe} variant="secondary" fullWidth>
+          <Button
+            onClick={() => {
+              if (symbol) {
+                unsubscribe(symbol);
+                setPriceAlerts((prev) =>
+                  prev.filter((alert) => alert.symbol !== symbol)
+                );
+                setStockPriceHistory((prev) =>
+                  prev.filter(
+                    (existentSymbol) => existentSymbol.symbolName !== symbol
+                  )
+                );
+              }
+            }}
+            disabled={!symbol || !isSymbolSubscribed(symbol)}
+            variant="secondary"
+            fullWidth
+          >
             Unsubscribe
           </Button>
         </div>
