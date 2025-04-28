@@ -1,30 +1,3 @@
-# Designli Tech Test
-
-## 📌 Instructions
-
-You can choose either of the two exercises. Follow the instructions and if you want to
-propose something else, you have room to unleash your creativity and tech experience 👍.
-
-### The easy one:
-
-1.  Create a React app (Typescript) for showing stock data in real time using Finnhub
-    Stock APIs ✅
-
-2.  The app should have 3 components:
-   - Left form: A form with 2 fields, a dropdown to select a stock to watch and an input for price alert. ✅
-   - Top cards (similar to Finnhu home), for showing the stock name, the value and the margin change as a percentage. ✅
-   - A graph for plotting the value of all stock added in dollar value. ✅
-
-4.  For real time tracking use Sockets API ✅
-5.  For top cards, use red if the value is below the alert value and green if above. ✅
-
-### The real challenge:
-
-1. Same easy exercise but as a PWA ✅
-2. Manage the websocket connection in background and save the values in local storage
-   to quickly plot when open the PWA ✅
-3. Send a webpush notification when price go below the alert level.
-
 ## Installation
 
 1.  **Clone the repository:**
